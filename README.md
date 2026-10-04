@@ -1,73 +1,72 @@
-# 🚀 CI/CD Academic Learning Platform
+# ANTE — CI/CD Academic Learning Platform
 
-An interactive platform for teaching **CI/CD & DevOps** to students — built with Flask, featuring a secure Python sandbox, an embedded VS Code editor, and role-based panels for students, lecturers, and admins .
+An interactive web platform that teaches **CI/CD and DevOps** through practice instead of slides. Students walk through the *Code → Build → Test → Deploy* stages, write and run real Python code in the browser, and earn a completion certificate. Lecturers manage content and review submissions; admins manage users and the system.
 
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-3.0-000000?logo=flask&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-370%20passing-success)
+> Team project developed at Sami Shamoon College of Engineering (SCE) by a four-student team. This is a private copy of the team repository with its full commit history. The original README is kept in [`docs/README_ORIGINAL.md`](docs/README_ORIGINAL.md).
 
----
+## What it does
 
-## 📖 About
+- **Learning modules** with quiz and coding exercises, and progress tracking
+- **Embedded Monaco editor** (the VS Code editor) with Python syntax highlighting
+- **Secure Python sandbox**: isolated execution with a timeout, memory limits and blocked dangerous imports
+- **Animated CI/CD pipeline** simulation with terminal output
+- **Student unit tests**: students write and run their own tests after solving a challenge
+- **Role-based panels** for students, lecturers and admins, including lecturer code review and feedback
+- **Security hardening**: CSRF tokens, login throttling, session timeout and an audit log
+- **Completion certificate** generated as a PDF
 
-CI/CD and DevOps are usually learned from theory and slides, which makes the actual pipeline feel abstract. **ANTE** turns it into a hands-on experience: instead of just reading about *Code → Build → Test → Deploy*, learners walk through each stage, write and run real Python code in the browser, see a live pipeline simulation, and earn a certificate on completion.
-
-**What it does:** guides students through interactive learning modules, lets them solve quiz and coding exercises in a real VS Code editor (with their code running in a secure sandbox), write their own unit tests, and track progress. Lecturers manage questions and theory content and review student submissions, while admins manage users, settings, and the system.
-
-**Who it's for:**
-- **Students** — learning CI/CD & DevOps through practice rather than passive reading.
-- **Lecturers** — managing course content and reviewing student work.
-- **Admins** — running and overseeing the platform.
-
----
-
-## ✨ Features
-
-- **Embedded Monaco Editor** — the real VS Code editor in the browser, with Python syntax highlighting and IntelliSense.
-- **Animated CI/CD pipeline** — a live *Code → Build → Test → Deploy* simulation with terminal output.
-- **Secure Python sandbox** — thread-isolated execution, 2s timeout, memory limits, and blocked dangerous imports.
-- **Student unit tests** — students write and run their own tests after solving a challenge.
-- **Lecturer code review** — review student submissions and leave feedback.
-- **Security hardening** — CSRF tokens, login throttling, session timeout, and an audit log.
-- **Completion certificate** — auto-generated PDF for students who pass the threshold.
-
----
-
-## 🧱 Tech Stack
+## Tech stack
 
 | Layer | Technology |
-|-------|------------|
-| Backend | Python 3.12 + Flask 3.0 |
-| ORM | SQLAlchemy 2.x |
-| Database | SQLite (default) / MS SQL Server (optional) |
-| Frontend | Jinja2 + custom CSS + Monaco Editor |
-| Testing | pytest (370 tests) |
+|---|---|
+| Backend | Python 3.12, Flask 3 |
+| Data | SQLAlchemy 2, SQLite (default), MS SQL Server (optional) |
+| Frontend | Jinja2 templates, custom CSS, Monaco Editor |
+| Testing | pytest, pytest-cov, flake8 (370 tests reported by the team) |
+| CI/CD | GitHub Actions: build, test and coverage, plus an Azure deployment readiness check |
 
----
-
-## ⚙️ Installation & Usage
+## How to run
 
 ```bash
-git clone <repo-url>
-cd ANTE
 python -m venv venv
-venv\Scripts\activate          # Windows  (source venv/bin/activate on Linux/Mac)
+venv\Scripts\activate            # Windows (source venv/bin/activate on Linux/macOS)
 pip install -r requirements.txt
-
-python run.py                  # then open http://127.0.0.1:5000
+python app.py                    # then open http://127.0.0.1:5000
 ```
 
-Seed demo data (optional):
+Optional demo data (local demo accounts only):
+
 ```bash
 python scripts/seed_demo.py
 ```
 
----
-
-## 🧪 Testing
+Run the tests:
 
 ```bash
-python -m pytest -v                          # all 370 tests
-python -m pytest --cov=app --cov-report=html # with coverage
+python -m pytest -v
+python -m pytest --cov=app --cov-report=html
 ```
 
+## My role
+
+Saeed Abu Hani, 132 of the 327 commits across all branches. Based on the commit history:
+
+- **CI/CD pipeline**: created and maintained the GitHub Actions workflows (`ci.yml` for build, test and coverage, a hackathon workflow, and the Azure readiness check)
+- **Repository structure**: reorganised the project layout (moving modules into `app/` and `app/services/`) and merged work between branches
+- **Backend modules**: contributed to models, authorization, database initialisation and services (questions, progress, reports)
+- **Documentation**: maintained the README
+
+## Team
+
+| Member | GitHub | Commits (all branches) |
+|---|---|---|
+| Saeed Abu Hani | [@abohaab-cell](https://github.com/abohaab-cell) | 132 |
+| Borh2n | [@Borh2n](https://github.com/Borh2n) | 112 |
+| Yosef Nsasra | [@yosef870](https://github.com/yosef870) | 43 |
+| Yakoob Hasone | [@YakoobHasone](https://github.com/YakoobHasone) | 40 |
+
+The original repository belongs to the course organisation `BS-PMC-2026` (`BS-PMC-26-Team1`). All credit for the shared work goes to the whole team.
+
+## Screenshots
+
+_To be added._
