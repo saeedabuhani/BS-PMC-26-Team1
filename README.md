@@ -8,9 +8,9 @@ An interactive web platform that teaches **CI/CD and DevOps** through practice: 
 ![Flask](https://img.shields.io/badge/Flask-3-black)
 ![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088ff)
 
-### [▶ Live Demo](https://ante-demo.netlify.app)
+### [▶ Live Demo](https://saeedabuhani.github.io/BS-PMC-26-Team1/)
 
-The live demo is a **static, no-server** version. Its screens were saved from the real Flask app (student, lecturer and admin panels, with seeded sample data). Answers and the code runner's output are results **recorded** when the demo was built, so no code runs in the browser or on Netlify and nothing is saved. Pick a role on the first screen.
+The live demo is a **static, no-server** version hosted on GitHub Pages (branch `gh-pages`). Its screens were saved from the real Flask app (student, lecturer and admin panels, with seeded sample data). Answers and the code runner's output are results **recorded** when the demo was built, so no code runs in the browser or on Netlify and nothing is saved. Pick a role on the first screen.
 
 > Team project developed at Sami Shamoon College of Engineering (SCE) by a four-student team, as part of the course `BS-PMC-2026`. The full commit history of the team repository is preserved here.
 
@@ -87,12 +87,14 @@ Result: **370 passed** locally and in GitHub Actions (coverage 83%). The workflo
 
 ## Static demo build
 
-The demo on Netlify is generated from the real app:
+The public demo is generated from the real app:
 
 ```bash
 npm i playwright && npx playwright install chromium
-node scripts/build_demo.mjs      # writes demo-dist/
+DEMO_BASE=/BS-PMC-26-Team1 node scripts/build_demo.mjs   # writes demo-dist/ for a GitHub Pages project site
 ```
+
+Without `DEMO_BASE` the build is meant to be served from a site root. The `gh-pages` branch holds the contents of `demo-dist/`.
 
 The script starts the app on a throw-away SQLite database, seeds it with `scripts/seed_demo.py`, signs in as a student, a lecturer and the admin with a headless browser, saves every reachable screen, and records the feedback pages and sandbox output once. `scripts/demo_runtime.js` then answers the forms and the Run button from those recordings in the browser.
 
