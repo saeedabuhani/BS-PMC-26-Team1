@@ -1,7 +1,8 @@
-// Builds the static, no-server demo of ANTE into ./demo-dist (deployed on Netlify as "ante-demo").
+// Builds the static, no-server demo of ANTE into ./demo-dist (published on GitHub Pages, branch gh-pages).
 //
 //   npm i playwright && npx playwright install chromium     (once)
-//   node scripts/build_demo.mjs
+//   node scripts/build_demo.mjs                       (served from the site root)
+//   DEMO_BASE=/BS-PMC-26-Team1 node scripts/build_demo.mjs   (GitHub Pages project site)
 //
 // What it does: starts the REAL Flask app on a throw-away SQLite database, seeds it with scripts/seed_demo.py (admin, 2 lecturers, 12 students with attempts),
 // signs in as a student, a lecturer and the admin with a headless browser, and saves every reachable
@@ -26,6 +27,7 @@ const { chromium } = playwright;
 const root = resolve(import.meta.dirname, "..");
 const out = join(root, "demo-dist");
 const PORT = 5055;
+const DEMO_BASE = (process.env.DEMO_BASE || "").replace(/\/$/, ""); // "" or e.g. "/BS-PMC-26-Team1"
 const BASE = `http://127.0.0.1:${PORT}`;
 const work = join(tmpdir(), "ante-demo-build");
 rmSync(work, { recursive: true, force: true });
@@ -65,7 +67,8 @@ function scrub(html) {
   return html
     .replace(/name="csrf_token" value="[^"]*"/g, 'name="csrf_token" value="demo"')
     .replace(new RegExp(BASE.replace(/[.]/g, "\\."), "g"), "")
-    .replace("</body>", '<script src="/demo.js"></script></body>');
+    .replace(/(["'(])\/static\//g, `$1${DEMO_BASE}/static/`)
+    .replace("</body>", `<script src="${DEMO_BASE}/demo.js"></script></body>`);
 }
 
 async function login(role) {
@@ -167,9 +170,10 @@ writeFileSync(join(out, "manifest.json"), JSON.stringify(manifest));
   writeFileSync(join(out, "login-real.html"), scrub(await page.content()));
   await ctx.close();
 }
-writeFileSync(join(out, "index.html"), readFileSync(join(root, "scripts", "demo_index.html"), "utf8"));
-writeFileSync(join(out, "404.html"), readFileSync(join(root, "scripts", "demo_index.html"), "utf8"));
-writeFileSync(join(out, "_redirects"), "/s  /s/home.html  200\n/l  /l/home.html  200\n/a  /a/home.html  200\n");
+const indexHtml = readFileSync(join(root, "scripts", "demo_index.html"), "utf8").replace(/__BASE__/g, DEMO_BASE);
+writeFileSync(join(out, "index.html"), indexHtml);
+writeFileSync(join(out, "404.html"), indexHtml);
+writeFileSync(join(out, ".nojekyll"), "");
 
 await browser.close();
 server.kill();

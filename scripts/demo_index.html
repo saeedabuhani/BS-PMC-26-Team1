@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ANTE – CI/CD Academic Learning Platform (demo)</title>
 <meta name="description" content="Demo of ANTE, a CI/CD learning platform with student, lecturer and admin panels. Sample data, recorded sandbox results.">
-<link rel="stylesheet" href="/static/design-system.css">
-<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="__BASE__/static/design-system.css">
+<link rel="stylesheet" href="__BASE__/static/style.css">
 <style>
   .pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:900px;margin:28px auto}
   .pick a{text-decoration:none;color:inherit}.pick .ds-card{height:100%;transition:transform .15s}.pick a:hover .ds-card,.pick a:focus-visible .ds-card{transform:translateY(-3px)}
@@ -21,9 +21,9 @@
     <p class="subtitle">An academic platform that teaches CI/CD with theory, a visual pipeline, exercises and a sandboxed code runner. Pick a role to explore the real screens.</p>
   </div>
   <div class="pick">
-    <a href="/s/home.html"><div class="ds-card"><h2 class="ds-mt-0">🎓 Student</h2><p class="ds-text-muted">Learning path, intro, pipeline, exercises with a Monaco code editor and sandbox results, progress, certificate.</p></div></a>
-    <a href="/l/home.html"><div class="ds-card"><h2 class="ds-mt-0">📝 Lecturer</h2><p class="ds-text-muted">Question bank, theory content, student submissions and feedback.</p></div></a>
-    <a href="/a/home.html"><div class="ds-card"><h2 class="ds-mt-0">🛠️ Admin</h2><p class="ds-text-muted">Users, modules, settings, audit log and reports.</p></div></a>
+    <a href="__BASE__/s/home.html"><div class="ds-card"><h2 class="ds-mt-0">🎓 Student</h2><p class="ds-text-muted">Learning path, intro, pipeline, exercises with a Monaco code editor and sandbox results, progress, certificate.</p></div></a>
+    <a href="__BASE__/l/home.html"><div class="ds-card"><h2 class="ds-mt-0">📝 Lecturer</h2><p class="ds-text-muted">Question bank, theory content, student submissions and feedback.</p></div></a>
+    <a href="__BASE__/a/home.html"><div class="ds-card"><h2 class="ds-mt-0">🛠️ Admin</h2><p class="ds-text-muted">Users, modules, settings, audit log and reports.</p></div></a>
   </div>
   <p class="note ds-text-muted">Sample data only. The screens were saved from the real Flask app; answers and the sandbox log are recorded results, so nothing is executed and nothing is saved.</p>
 </div>

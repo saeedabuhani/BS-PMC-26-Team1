@@ -4,10 +4,12 @@
  * results recorded when the demo was built, and the "Run" button returns a recorded sandbox log.
  * No code is executed. */
 (function () {
-  var role = (/^\/(s|l|a)\//.exec(location.pathname) || [])[1];
+  // The demo may live under a sub-path (GitHub Pages project site): derive it from this script's own URL.
+  var BASE = new URL(document.currentScript.src).pathname.replace(/\/demo\.js$/, "");
+  var role = (/^\/(s|l|a)\//.exec(location.pathname.slice(BASE.length)) || [])[1];
   if (!role) return;
   var manifest = null;
-  var ready = fetch("/manifest.json").then(function (r) { return r.json(); }).then(function (m) { manifest = m; });
+  var ready = fetch(BASE + "/manifest.json").then(function (r) { return r.json(); }).then(function (m) { manifest = m; });
 
   function keyOf(pq) { return pq.replace(/[^a-zA-Z0-9]+/g, "_").replace(/^_+|_+$/g, "") || "home"; }
   function toast(msg) {
@@ -19,11 +21,11 @@
     setTimeout(function () { d.remove(); }, 3200);
   }
   function go(pq) {
-    if (/^\/logout/.test(pq)) { location.href = "/"; return; }
+    if (/^\/logout/.test(pq)) { location.href = BASE + "/"; return; }
     var list = (manifest && manifest.pages[role]) || [];
-    if (list.indexOf(pq) >= 0 || (pq === "/" && role === "s")) { location.href = "/" + role + "/" + keyOf(pq) + ".html"; return; }
+    if (list.indexOf(pq) >= 0 || (pq === "/" && role === "s")) { location.href = BASE + "/" + role + "/" + keyOf(pq) + ".html"; return; }
     var withoutHash = pq.split("#")[0];
-    if (withoutHash !== pq && list.indexOf(withoutHash) >= 0) { location.href = "/" + role + "/" + keyOf(withoutHash) + ".html"; return; }
+    if (withoutHash !== pq && list.indexOf(withoutHash) >= 0) { location.href = BASE + "/" + role + "/" + keyOf(withoutHash) + ".html"; return; }
     toast("This screen is not part of the demo.");
   }
 
@@ -35,7 +37,7 @@
     if (!href || href.charAt(0) === "#" || /^(mailto:|javascript:)/.test(href)) return;
     if (/^https?:\/\//.test(href) || href.indexOf("//") === 0) return;
     e.preventDefault();
-    if (/^\/static/.test(href)) return;
+    if (/^\/static/.test(href) || href.indexOf(BASE + "/static") === 0) return;
     ready.then(function () { go(href); });
   }, true);
 
@@ -59,7 +61,7 @@
           else { var ta = form.querySelector("textarea[name=code_answer]"); code = ta ? ta.value : ""; }
           good = new RegExp(spec.correctPattern).test(code);
         }
-        location.href = "/s/exercise_q_" + m[1] + "__" + (good ? "correct" : "wrong") + ".html";
+        location.href = BASE + "/s/exercise_q_" + m[1] + "__" + (good ? "correct" : "wrong") + ".html";
         return;
       }
       toast("Read-only demo: changes are not saved.");
@@ -91,7 +93,7 @@
     b.setAttribute("role", "status");
     b.style.cssText = "position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#0f172a;color:#fff;font:13px/1.4 system-ui,sans-serif;padding:8px 14px;text-align:center";
     var names = { s: "student", l: "lecturer", a: "admin" };
-    b.innerHTML = 'Demo mode – you are the ' + names[role] + '. Saved screens and recorded sandbox results; nothing runs or is saved. <a style="color:#7dd3fc" data-raw="1" href="/">Switch role</a> · <a style="color:#7dd3fc" href="https://github.com/saeedabuhani/BS-PMC-26-Team1" target="_blank" rel="noopener">GitHub</a>';
+    b.innerHTML = 'Demo mode – you are the ' + names[role] + '. Saved screens and recorded sandbox results; nothing runs or is saved. <a style="color:#7dd3fc" data-raw="1" href="' + BASE + '/">Switch role</a> · <a style="color:#7dd3fc" href="https://github.com/saeedabuhani/BS-PMC-26-Team1" target="_blank" rel="noopener">GitHub</a>';
     document.body.appendChild(b);
     document.body.style.paddingBottom = "44px";
   }
