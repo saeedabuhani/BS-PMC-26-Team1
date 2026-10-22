@@ -1,3 +1,0 @@
-# Static demo: build it with `node scripts/build_demo.mjs`, then deploy demo-dist as plain static files.
-[build]
-  publish = "demo-dist"
