@@ -9,3 +9,10 @@ instance/
 
 # local SQL-Server-style CSV store created by tests
 db_sqlserver_live/
+
+# static demo build output
+demo-dist/
+
+# Local Netlify folder
+.netlify
+.venv/
