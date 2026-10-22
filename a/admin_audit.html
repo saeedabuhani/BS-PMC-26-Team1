@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTE CI/CD Academy</title>
+    
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/design-system.css">
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <span class="ds-bg-decor ds-bg-decor--purple" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--mint" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--blue" aria-hidden="true"></span>
+
+    
+    
+    
+    <nav class="ds-nav">
+        <a class="nav-brand ds-nav-brand" href="/">DevOpsEd</a>
+        <div class="nav-links ds-nav-links">
+            <a href="/">Home</a>
+            
+            
+                
+                
+                    <a href="/admin/dashboard">Admin Dashboard</a>
+                    <a href="/admin/users">Users</a>
+                    <a href="/admin/modules">Modules</a>
+                    <a href="/admin/audit">Audit</a>
+                    <a href="/admin/reports">Reports</a>
+                    <a href="/admin/settings">Settings</a>
+                
+                
+                
+                <span class="ds-pill ds-pill-mint" style="margin-left:0.25rem; font-size: 15px; padding: 8px 16px;">Hello, System Administrator</span>
+                
+                <a href="/logout" style="color: var(--ds-state-error);">Logout</a>
+            
+        </div>
+    </nav>
+
+    
+
+    <div class="container">
+        
+          
+        
+
+        
+<div class="module-header">
+    <h1>Audit Log</h1>
+    <p class="subtitle">Every important platform action, in descending chronological order.</p>
+</div>
+
+<div class="ds-card" style="margin-bottom: var(--ds-space-5);">
+    <form method="GET" action="/admin/audit" class="ds-row" style="align-items:end;">
+        <div style="flex:2; min-width: 200px;">
+            <label for="audit-q">Search</label>
+            <input id="audit-q" type="text" name="q" value="" placeholder="Action, target, details…">
+        </div>
+        <div style="flex:1; min-width: 160px;">
+            <label for="audit-action">Action</label>
+            <input id="audit-action" type="text" name="action" value="" placeholder="e.g. user.delete">
+        </div>
+        <div style="flex:1; min-width: 160px;">
+            <label for="audit-user">User</label>
+            <input id="audit-user" type="text" name="user" value="" placeholder="Name / email">
+        </div>
+        <div style="flex:0 0 160px;">
+            <label for="audit-start">Start</label>
+            <input id="audit-start" type="date" name="start" value="">
+        </div>
+        <div style="flex:0 0 160px;">
+            <label for="audit-end">End</label>
+            <input id="audit-end" type="date" name="end" value="">
+        </div>
+        <div>
+            <button type="submit" class="ds-btn ds-btn-primary">Filter</button>
+        </div>
+    </form>
+</div>
+
+<div class="ds-card">
+    
+    <table class="ds-table">
+        <thead>
+            <tr>
+                <th>When (UTC)</th>
+                <th>Actor</th>
+                <th>Action</th>
+                <th>Target</th>
+                <th>Details</th>
+                <th>IP</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>2026-10-22 12:28:25</td>
+                <td>System Administrator</td>
+                <td><span class="ds-pill">auth.login_success</span></td>
+                <td>user #1</td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small); max-width: 360px; word-break: break-word;">
+                    {"role": "admin"}
+                </td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small);">127.0.0.1</td>
+            </tr>
+            
+            <tr>
+                <td>2026-10-22 12:27:33</td>
+                <td>ד"ר רביד כהן</td>
+                <td><span class="ds-pill">auth.login_success</span></td>
+                <td>user #2</td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small); max-width: 360px; word-break: break-word;">
+                    {"role": "lecturer"}
+                </td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small);">127.0.0.1</td>
+            </tr>
+            
+            <tr>
+                <td>2026-10-22 12:27:03</td>
+                <td>נועה אברהמי</td>
+                <td><span class="ds-pill">auth.login_success</span></td>
+                <td>user #4</td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small); max-width: 360px; word-break: break-word;">
+                    {"role": "student"}
+                </td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small);">127.0.0.1</td>
+            </tr>
+            
+            <tr>
+                <td>2026-10-22 12:26:58</td>
+                <td>נועה אברהמי</td>
+                <td><span class="ds-pill">auth.login_success</span></td>
+                <td>user #4</td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small); max-width: 360px; word-break: break-word;">
+                    {"role": "student"}
+                </td>
+                <td style="font-family: monospace; font-size: var(--ds-fs-small);">127.0.0.1</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <div class="ds-flex ds-justify-between ds-items-center ds-mt-6" style="flex-wrap: wrap; gap: var(--ds-space-3);">
+        <p class="ds-text-muted" style="margin:0; font-size: var(--ds-fs-small);">
+            Showing 4 of 4 entries (page 1 of 1).
+        </p>
+        <div class="ds-flex ds-gap-2">
+            
+            
+        </div>
+    </div>
+    
+</div>
+
+    </div>
+
+<script src="/BS-PMC-26-Team1/demo.js"></script></body></html>

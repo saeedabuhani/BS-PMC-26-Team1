@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTE CI/CD Academy</title>
+    
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/design-system.css">
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <span class="ds-bg-decor ds-bg-decor--purple" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--mint" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--blue" aria-hidden="true"></span>
+
+    
+    
+    
+    <nav class="ds-nav">
+        <a class="nav-brand ds-nav-brand" href="/">DevOpsEd</a>
+        <div class="nav-links ds-nav-links">
+            <a href="/">Home</a>
+            
+            
+                
+                
+                    <a href="/admin/dashboard">Admin Dashboard</a>
+                    <a href="/admin/users">Users</a>
+                    <a href="/admin/modules">Modules</a>
+                    <a href="/admin/audit">Audit</a>
+                    <a href="/admin/reports">Reports</a>
+                    <a href="/admin/settings">Settings</a>
+                
+                
+                
+                <span class="ds-pill ds-pill-mint" style="margin-left:0.25rem; font-size: 15px; padding: 8px 16px;">Hello, System Administrator</span>
+                
+                <a href="/logout" style="color: var(--ds-state-error);">Logout</a>
+            
+        </div>
+    </nav>
+
+    
+
+    <div class="container">
+        
+          
+        
+
+        
+<div class="module-header">
+    <h1>Reports &amp; Exports</h1>
+    <p class="subtitle">Generate CSV reports for administrative review and offline analysis.</p>
+</div>
+
+<div class="ds-row">
+    
+    <div class="ds-card" style="flex:1; min-width: 280px;">
+        <h2 class="ds-mt-0">Students performance</h2>
+        <p class="ds-text-muted" style="font-size: var(--ds-fs-small);">
+            Per-student attempts, success rate and account status.
+            
+            
+        </p>
+        <form method="GET" action="/admin/reports/students.csv" class="ds-flex-col" style="gap: var(--ds-space-3);">
+            <div class="ds-row">
+                <div style="flex:1; min-width: 140px;">
+                    <label for="students-start">From</label>
+                    <input id="students-start" type="date" name="start">
+                </div>
+                <div style="flex:1; min-width: 140px;">
+                    <label for="students-end">To</label>
+                    <input id="students-end" type="date" name="end">
+                </div>
+            </div>
+            <button type="submit" class="ds-btn ds-btn-primary">Download CSV</button>
+        </form>
+    </div>
+    
+    <div class="ds-card" style="flex:1; min-width: 280px;">
+        <h2 class="ds-mt-0">Questions difficulty analytics</h2>
+        <p class="ds-text-muted" style="font-size: var(--ds-fs-small);">
+            
+            Per-question difficulty signal and attempt volume.
+            
+        </p>
+        <form method="GET" action="/admin/reports/questions.csv" class="ds-flex-col" style="gap: var(--ds-space-3);">
+            <div class="ds-row">
+                <div style="flex:1; min-width: 140px;">
+                    <label for="questions-start">From</label>
+                    <input id="questions-start" type="date" name="start">
+                </div>
+                <div style="flex:1; min-width: 140px;">
+                    <label for="questions-end">To</label>
+                    <input id="questions-end" type="date" name="end">
+                </div>
+            </div>
+            <button type="submit" class="ds-btn ds-btn-primary">Download CSV</button>
+        </form>
+    </div>
+    
+    <div class="ds-card" style="flex:1; min-width: 280px;">
+        <h2 class="ds-mt-0">Daily platform usage</h2>
+        <p class="ds-text-muted" style="font-size: var(--ds-fs-small);">
+            
+            
+            Daily attempts, unique learners and overall success rate.
+        </p>
+        <form method="GET" action="/admin/reports/usage.csv" class="ds-flex-col" style="gap: var(--ds-space-3);">
+            <div class="ds-row">
+                <div style="flex:1; min-width: 140px;">
+                    <label for="usage-start">From</label>
+                    <input id="usage-start" type="date" name="start">
+                </div>
+                <div style="flex:1; min-width: 140px;">
+                    <label for="usage-end">To</label>
+                    <input id="usage-end" type="date" name="end">
+                </div>
+            </div>
+            <button type="submit" class="ds-btn ds-btn-primary">Download CSV</button>
+        </form>
+    </div>
+    
+</div>
+
+<p class="ds-text-muted ds-mt-4" style="font-size: var(--ds-fs-small);">
+    CSV files are generated on demand with a UTF-8 byte-order mark so Hebrew text renders correctly when opened in Excel.
+</p>
+
+    </div>
+
+<script src="/BS-PMC-26-Team1/demo.js"></script></body></html>

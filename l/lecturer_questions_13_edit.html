@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTE CI/CD Academy</title>
+    
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/design-system.css">
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <span class="ds-bg-decor ds-bg-decor--purple" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--mint" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--blue" aria-hidden="true"></span>
+
+    
+    
+    
+    <nav class="ds-nav">
+        <a class="nav-brand ds-nav-brand" href="/">DevOpsEd</a>
+        <div class="nav-links ds-nav-links">
+            <a href="/">Home</a>
+            
+                <a href="/learning-path">Path</a>
+                <a href="/intro">Intro</a>
+                <a href="/pipeline">Pipeline</a>
+                <a href="/exercise">Exercise</a>
+            
+            
+                
+                    <a href="/lecturer/questions">Question Bank</a>
+                    <a href="/lecturer/theory">Theory Content</a>
+                    <a href="/lecturer/submissions">Submissions</a>
+                    <a href="/lecturer/dashboard">Lecturer Dashboard</a>
+                
+                
+                
+                
+                    <a href="/progress" class="is-active">Dashboard</a>
+                
+                <span class="ds-pill ds-pill-mint" style="margin-left:0.25rem; font-size: 15px; padding: 8px 16px;">Hello, ד"ר רביד כהן</span>
+                
+                <a href="/logout" style="color: var(--ds-state-error);">Logout</a>
+            
+        </div>
+    </nav>
+
+    
+
+    <div class="container">
+        
+          
+        
+
+        
+<div class="module-header">
+    <h1>Edit Question</h1>
+    <p class="subtitle">Manage the question bank with full metadata and answer details.</p>
+</div>
+
+<div class="ds-card" style="max-width: 820px; margin: 0 auto;">
+    <form method="POST" class="ds-flex-col" style="gap: var(--ds-space-4);">
+        <input type="hidden" name="csrf_token" value="demo">
+        <div>
+            <label for="question_text">Question Text</label>
+            <textarea id="question_text" name="question_text" rows="4" required="">Which practice helps to recover quickly from a bad deployment?</textarea>
+        </div>
+
+        <div class="ds-row">
+            <div style="flex: 1; min-width: 180px;">
+                <label for="question_type">Type</label>
+                <select name="question_type" id="question_type">
+                    
+                    <option value="mcq" selected="">MCQ</option>
+                    <option value="code">CODE</option>
+                    <option value="open">OPEN</option>
+                </select>
+            </div>
+            <div style="flex: 1; min-width: 180px;">
+                <label for="difficulty">Difficulty</label>
+                
+                <select id="difficulty" name="difficulty">
+                    <option value="easy" selected="">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div style="flex: 1; min-width: 180px;">
+                <label for="module_id">Module</label>
+                
+                <select id="module_id" name="module_id" required="">
+                    
+                    <option value="1">Intro</option>
+                    
+                    <option value="2">Pipeline</option>
+                    
+                    <option value="3" selected="">Exercise</option>
+                    
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <label for="correct_answer">Correct Answer</label>
+            <input id="correct_answer" type="text" name="correct_answer" required="" value="Automated rollback">
+        </div>
+
+        <div>
+            <label for="explanation">Explanation</label>
+            <textarea id="explanation" name="explanation" rows="3" required="">Automated rollback restores the previous known-good version with minimal manual effort.</textarea>
+        </div>
+
+        <div>
+            <label for="options">MCQ Options (one option per line)</label>
+            <textarea id="options" name="options" rows="4">Manual hotfix
+Automated rollback
+Skipping tests</textarea>
+        </div>
+
+        <div>
+            <label for="starter_code">Starter Code (for CODE type)</label>
+            <textarea id="starter_code" name="starter_code" style="display:none;">None</textarea>
+            <div id="starterCodeWrapper" style="border-radius: var(--ds-radius-input); border: 1px solid var(--ds-border-strong); overflow: hidden; background:#1e1e1e;">
+                <div style="display:flex; justify-content:space-between; align-items:center; padding: 8px 14px; background:#252526; border-bottom:1px solid #333; font-family: monospace; font-size:13px; color:#cccccc;">
+                    <span>● starter_code.py</span>
+                    <span style="opacity:0.7;">Python</span>
+                </div>
+                <div id="starterCodeEditor" style="height: 220px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <div>
+            <label for="test_cases_json">Test Cases JSON (for CODE type)</label>
+            <textarea id="test_cases_json" name="test_cases_json" style="display:none;">None</textarea>
+            <div id="testCasesWrapper" style="border-radius: var(--ds-radius-input); border: 1px solid var(--ds-border-strong); overflow: hidden; background:#1e1e1e;">
+                <div style="display:flex; justify-content:space-between; align-items:center; padding: 8px 14px; background:#252526; border-bottom:1px solid #333; font-family: monospace; font-size:13px; color:#cccccc;">
+                    <span>● test_cases.json</span>
+                    <span style="opacity:0.7;">JSON</span>
+                </div>
+                <div id="testCasesEditor" style="height: 180px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
+        <script>
+        (function () {
+            const starterValue = null;
+            const testCasesValue = null;
+
+            require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs' } });
+            require(['vs/editor/editor.main'], function () {
+                const starter = monaco.editor.create(document.getElementById('starterCodeEditor'), {
+                    value: starterValue || '# Provide starter code for the student\n',
+                    language: 'python',
+                    theme: 'vs-dark',
+                    automaticLayout: true,
+                    fontSize: 14,
+                    minimap: { enabled: false },
+                    scrollBeyondLastLine: false,
+                    tabSize: 4
+                });
+                starter.onDidChangeModelContent(() => {
+                    document.getElementById('starter_code').value = starter.getValue();
+                });
+                document.getElementById('starter_code').value = starter.getValue();
+
+                const cases = monaco.editor.create(document.getElementById('testCasesEditor'), {
+                    value: testCasesValue || '[\n  { "inputs": [2, 3], "expected": 5 }\n]',
+                    language: 'json',
+                    theme: 'vs-dark',
+                    automaticLayout: true,
+                    fontSize: 14,
+                    minimap: { enabled: false },
+                    scrollBeyondLastLine: false,
+                    tabSize: 2
+                });
+                cases.onDidChangeModelContent(() => {
+                    document.getElementById('test_cases_json').value = cases.getValue();
+                });
+                document.getElementById('test_cases_json').value = cases.getValue();
+            });
+        })();
+        </script>
+
+        
+        <div class="ds-flex ds-items-center ds-gap-2">
+            <input type="checkbox" id="is_active" name="is_active" checked="" style="width:auto; margin:0; accent-color: var(--ds-primary);">
+            <label for="is_active" style="margin: 0;">Active Question</label>
+        </div>
+        
+
+        <div class="ds-flex ds-gap-4" style="flex-wrap: wrap;">
+            <button class="ds-btn ds-btn-primary" type="submit">Save Changes</button>
+            <a href="/lecturer/questions" class="ds-btn ds-btn-outline">Cancel</a>
+        </div>
+    </form>
+</div>
+
+    </div>
+
+<script src="/BS-PMC-26-Team1/demo.js"></script></body></html>

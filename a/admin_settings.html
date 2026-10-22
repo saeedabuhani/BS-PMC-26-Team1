@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTE CI/CD Academy</title>
+    
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/design-system.css">
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <span class="ds-bg-decor ds-bg-decor--purple" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--mint" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--blue" aria-hidden="true"></span>
+
+    
+    
+    
+    <nav class="ds-nav">
+        <a class="nav-brand ds-nav-brand" href="/">DevOpsEd</a>
+        <div class="nav-links ds-nav-links">
+            <a href="/">Home</a>
+            
+            
+                
+                
+                    <a href="/admin/dashboard">Admin Dashboard</a>
+                    <a href="/admin/users">Users</a>
+                    <a href="/admin/modules">Modules</a>
+                    <a href="/admin/audit">Audit</a>
+                    <a href="/admin/reports">Reports</a>
+                    <a href="/admin/settings">Settings</a>
+                
+                
+                
+                <span class="ds-pill ds-pill-mint" style="margin-left:0.25rem; font-size: 15px; padding: 8px 16px;">Hello, System Administrator</span>
+                
+                <a href="/logout" style="color: var(--ds-state-error);">Logout</a>
+            
+        </div>
+    </nav>
+
+    
+
+    <div class="container">
+        
+          
+        
+
+        
+<div class="module-header">
+    <h1>System Settings</h1>
+    <p class="subtitle">Platform-wide configuration that takes effect immediately.</p>
+</div>
+
+<div class="ds-card" style="max-width: 720px; margin: 0 auto;">
+    <form method="POST" class="ds-flex-col" style="gap: var(--ds-space-4);">
+        <input type="hidden" name="csrf_token" value="demo">
+
+        <div>
+            <label for="system_name">System name</label>
+            <input id="system_name" type="text" name="system_name" required="" maxlength="100" value="ANTE CI/CD Academy">
+        </div>
+
+        <div>
+            <label for="min_password_length">Minimum password length</label>
+            <input id="min_password_length" type="number" name="min_password_length" min="6" max="64" value="8">
+            <p class="ds-text-muted" style="font-size: var(--ds-fs-small); margin: 4px 0 0;">Applies to new registrations and password resets.</p>
+        </div>
+
+        <div>
+            <label for="min_completion_score">Minimum completion score (%)</label>
+            <input id="min_completion_score" type="number" name="min_completion_score" min="0" max="100" value="70">
+            <p class="ds-text-muted" style="font-size: var(--ds-fs-small); margin: 4px 0 0;">Required success rate for course completion certificates.</p>
+        </div>
+
+        <div class="ds-flex ds-items-center ds-gap-3" style="padding: var(--ds-space-3) var(--ds-space-4); border-radius: var(--ds-radius-input); background: rgba(255, 232, 103, 0.18); border: 1px solid var(--ds-state-progress);">
+            <input type="checkbox" id="maintenance_mode" name="maintenance_mode" style="width:auto; margin:0; accent-color: var(--ds-state-progress);">
+            <label for="maintenance_mode" style="margin:0;">Enable maintenance mode (only admins can access the platform)</label>
+        </div>
+
+        <div class="ds-flex ds-gap-4" style="flex-wrap: wrap;">
+            <button type="submit" class="ds-btn ds-btn-primary">Save settings</button>
+            <a href="/admin/dashboard" class="ds-btn ds-btn-outline">Back to dashboard</a>
+        </div>
+    </form>
+</div>
+
+    </div>
+
+<script src="/BS-PMC-26-Team1/demo.js"></script></body></html>

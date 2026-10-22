@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTE CI/CD Academy</title>
+    
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/design-system.css">
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <span class="ds-bg-decor ds-bg-decor--purple" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--mint" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--blue" aria-hidden="true"></span>
+
+    
+    
+    
+    <nav class="ds-nav">
+        <a class="nav-brand ds-nav-brand" href="/">DevOpsEd</a>
+        <div class="nav-links ds-nav-links">
+            <a href="/">Home</a>
+            
+                <a href="/learning-path">Path</a>
+                <a href="/intro">Intro</a>
+                <a href="/pipeline">Pipeline</a>
+                <a href="/exercise">Exercise</a>
+            
+            
+                
+                    <a href="/lecturer/questions">Question Bank</a>
+                    <a href="/lecturer/theory">Theory Content</a>
+                    <a href="/lecturer/submissions">Submissions</a>
+                    <a href="/lecturer/dashboard">Lecturer Dashboard</a>
+                
+                
+                
+                
+                    <a href="/progress" class="is-active">Dashboard</a>
+                
+                <span class="ds-pill ds-pill-mint" style="margin-left:0.25rem; font-size: 15px; padding: 8px 16px;">Hello, ד"ר רביד כהן</span>
+                
+                <a href="/logout" style="color: var(--ds-state-error);">Logout</a>
+            
+        </div>
+    </nav>
+
+    
+
+    <div class="container">
+        
+          
+        
+
+        
+<div class="ds-mb-4">
+    <a href="/lecturer/submissions" class="ds-btn ds-btn-outline ds-btn-sm">← Back to submissions</a>
+</div>
+
+<div class="module-header" style="text-align: left;">
+    <span class="ds-eyebrow">Submission #70</span>
+    <h1 class="ds-mt-2">Code review</h1>
+    <p class="subtitle">Submitted 2026-10-13 17:26 UTC by רוני מזרחי</p>
+</div>
+
+<div class="ds-row ds-mb-5">
+    <div class="ds-card" style="flex:1; min-width:280px;">
+        <p class="ds-eyebrow ds-mb-2">Student</p>
+        <h3 class="ds-mt-0">רוני מזרחי</h3>
+        <p class="ds-text-muted" style="font-size: var(--ds-fs-small); margin-bottom:0;">
+            roni.mizrahi@ante.local
+        </p>
+    </div>
+    <div class="ds-card" style="flex:1; min-width:280px;">
+        <p class="ds-eyebrow ds-mb-2">Question</p>
+        <h3 class="ds-mt-0">#11</h3>
+        <p style="margin: 0;">Write a function solve(a, b) that returns the absolute difference between a and b.</p>
+    </div>
+    <div class="ds-card" style="flex:1; min-width:200px;">
+        <p class="ds-eyebrow ds-mb-2">Result</p>
+        
+            <span class="ds-pill ds-pill-error" style="font-size: 16px;">✗ Failed automated tests</span>
+        
+        <p class="ds-text-muted ds-mt-2" style="font-size: var(--ds-fs-small); margin-bottom:0;">
+            Score: <strong>25</strong> / 100
+        </p>
+        
+    </div>
+</div>
+
+<div class="ds-card ds-mb-5">
+    <h2 class="ds-mt-0">Student solution</h2>
+    <div style="border-radius: var(--ds-radius-input); border: 1px solid var(--ds-border-strong); overflow: hidden; background:#1e1e1e;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding: 8px 14px; background:#252526; border-bottom:1px solid #333; font-family: monospace; font-size:13px; color:#cccccc;">
+            <span>● solution.py</span>
+            <span style="opacity:0.7;">Python (read-only)</span>
+        </div>
+        <div id="solutionViewer" style="height: 280px; width: 100%;"></div>
+    </div>
+    
+    <h3 class="ds-mt-4">Runner output</h3>
+    <pre style="margin:0; padding: var(--ds-space-4); background:#1e1e1e; color:#d4d4d4; font-family: monospace; font-size: 13px; line-height: 1.55; white-space: pre-wrap; border-radius: var(--ds-radius-input); max-height: 220px; overflow:auto;">demo run output</pre>
+    
+</div>
+
+
+
+<div class="ds-card">
+    <h2 class="ds-mt-0">Your review</h2>
+    
+
+    <form method="POST" class="ds-flex-col ds-gap-3 ds-mt-4">
+        <input type="hidden" name="csrf_token" value="demo">
+        <div>
+            <label for="review_text">Comment for the student</label>
+            <textarea id="review_text" name="review_text" rows="5" required="" maxlength="4000" placeholder="Praise what works, point out issues, suggest improvements…"></textarea>
+        </div>
+        <div class="ds-flex ds-gap-3" style="flex-wrap: wrap;">
+            <button type="submit" class="ds-btn ds-btn-primary">Save review</button>
+            <a href="/lecturer/submissions" class="ds-btn ds-btn-outline">Back to list</a>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
+<script>
+(function () {
+    const solution = "demo-incorrect-answer";
+    const tests = "";
+    require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs' } });
+    require(['vs/editor/editor.main'], function () {
+        monaco.editor.create(document.getElementById('solutionViewer'), {
+            value: solution || '# (empty submission)',
+            language: 'python',
+            theme: 'vs-dark',
+            readOnly: true,
+            automaticLayout: true,
+            fontSize: 14,
+            minimap: { enabled: false },
+            scrollBeyondLastLine: false
+        });
+        const testsHost = document.getElementById('testsViewer');
+        if (testsHost && tests) {
+            monaco.editor.create(testsHost, {
+                value: tests,
+                language: 'python',
+                theme: 'vs-dark',
+                readOnly: true,
+                automaticLayout: true,
+                fontSize: 14,
+                minimap: { enabled: false },
+                scrollBeyondLastLine: false
+            });
+        }
+    });
+})();
+</script>
+
+    </div>
+
+<script src="/BS-PMC-26-Team1/demo.js"></script></body></html>

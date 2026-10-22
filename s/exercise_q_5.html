@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTE CI/CD Academy</title>
+    
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/design-system.css">
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <span class="ds-bg-decor ds-bg-decor--purple" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--mint" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--blue" aria-hidden="true"></span>
+
+    
+    
+    
+    <nav class="ds-nav">
+        <a class="nav-brand ds-nav-brand" href="/">DevOpsEd</a>
+        <div class="nav-links ds-nav-links">
+            <a href="/">Home</a>
+            
+                <a href="/learning-path">Path</a>
+                <a href="/intro">Intro</a>
+                <a href="/pipeline">Pipeline</a>
+                <a href="/exercise">Exercise</a>
+            
+            
+                
+                
+                
+                    <a href="/certificate">Certificate</a>
+                
+                
+                    <a href="/progress" class="is-active">Dashboard</a>
+                
+                <span class="ds-pill ds-pill-mint" style="margin-left:0.25rem; font-size: 15px; padding: 8px 16px;">Hello, נועה אברהמי</span>
+                
+                <a href="/logout" style="color: var(--ds-state-error);">Logout</a>
+            
+        </div>
+    </nav>
+
+    
+
+    <div class="container">
+        
+          
+        
+
+        
+<div class="ds-flex ds-justify-between ds-items-center ds-mb-4" style="flex-wrap: wrap; gap: var(--ds-space-3);">
+    <div>
+        
+            <span class="ds-pill">All questions</span>
+        
+        <span class="ds-text-muted" style="margin-left: var(--ds-space-2); font-size: var(--ds-fs-small);">
+            Question 6 / 14
+        </span>
+    </div>
+    <a href="/exercise" class="ds-btn ds-btn-outline ds-btn-sm">Switch track</a>
+</div>
+
+
+<div style="height: 8px; border-radius: var(--ds-radius-pill); background: rgba(255,255,255,0.08); overflow: hidden; margin-bottom: var(--ds-space-5);">
+    <div style="height: 100%; width: 42.0%; background: var(--ds-primary); transition: width 0.4s ease;"></div>
+</div>
+
+<div class="module-header" style="margin-bottom: var(--ds-space-4);">
+    <h1>Question 6</h1>
+    <p class="subtitle">Which artifact is typically produced by the build stage?</p>
+</div>
+
+<div class="ds-card" style="max-width: 860px; margin: 0 auto;">
+    
+
+    
+    <form action="/exercise?q=5" method="POST" id="exerciseForm">
+        <input type="hidden" name="csrf_token" value="demo">
+        <input type="hidden" name="action" value="submit">
+
+        
+            <div class="ds-flex-col ds-gap-2" style="margin-top: var(--ds-space-4);">
+                
+                <label style="display:flex; align-items:center; gap: var(--ds-space-3); cursor:pointer; padding: var(--ds-space-3) var(--ds-space-4); border: 1.5px solid var(--ds-border-strong); border-radius: var(--ds-radius-input); background: var(--ds-surface); transition: border-color 0.2s ease, background 0.2s ease;">
+                    <input type="radio" name="answer" value="A spreadsheet of test results" required="" style="width:auto; margin:0; accent-color: var(--ds-primary);">
+                    <span style="font-weight: var(--ds-weight-body);">A spreadsheet of test results</span>
+                </label>
+                
+                <label style="display:flex; align-items:center; gap: var(--ds-space-3); cursor:pointer; padding: var(--ds-space-3) var(--ds-space-4); border: 1.5px solid var(--ds-border-strong); border-radius: var(--ds-radius-input); background: var(--ds-surface); transition: border-color 0.2s ease, background 0.2s ease;">
+                    <input type="radio" name="answer" value="A deployable container image or package" required="" style="width:auto; margin:0; accent-color: var(--ds-primary);">
+                    <span style="font-weight: var(--ds-weight-body);">A deployable container image or package</span>
+                </label>
+                
+                <label style="display:flex; align-items:center; gap: var(--ds-space-3); cursor:pointer; padding: var(--ds-space-3) var(--ds-space-4); border: 1.5px solid var(--ds-border-strong); border-radius: var(--ds-radius-input); background: var(--ds-surface); transition: border-color 0.2s ease, background 0.2s ease;">
+                    <input type="radio" name="answer" value="A list of pending tickets" required="" style="width:auto; margin:0; accent-color: var(--ds-primary);">
+                    <span style="font-weight: var(--ds-weight-body);">A list of pending tickets</span>
+                </label>
+                
+            </div>
+            <button type="submit" class="ds-btn ds-btn-primary ds-mt-6" style="width: 100%;">Submit Answer</button>
+
+        
+    </form>
+
+    
+    
+</div>
+
+
+
+<div class="action-container">
+    <a href="/exercise?random=1" class="ds-btn ds-btn-outline">🔀 Shuffle Session</a>
+    
+        <a href="/exercise?q=4" class="ds-btn ds-btn-blue">← Previous</a>
+    
+    
+        <a href="/exercise?q=6" class="ds-btn ds-btn-mint">Next →</a>
+    
+    <a href="/progress" class="ds-btn ds-btn-purple">View Dashboard</a>
+</div>
+
+    </div>
+
+<script src="/BS-PMC-26-Team1/demo.js"></script></body></html>

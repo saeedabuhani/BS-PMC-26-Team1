@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTE CI/CD Academy</title>
+    
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/design-system.css">
+    <link rel="stylesheet" href="/BS-PMC-26-Team1/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <span class="ds-bg-decor ds-bg-decor--purple" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--mint" aria-hidden="true"></span>
+    <span class="ds-bg-decor ds-bg-decor--blue" aria-hidden="true"></span>
+
+    
+    
+    
+    <nav class="ds-nav">
+        <a class="nav-brand ds-nav-brand" href="/">DevOpsEd</a>
+        <div class="nav-links ds-nav-links">
+            <a href="/">Home</a>
+            
+                <a href="/learning-path">Path</a>
+                <a href="/intro">Intro</a>
+                <a href="/pipeline">Pipeline</a>
+                <a href="/exercise">Exercise</a>
+            
+            
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            
+        </div>
+    </nav>
+
+    
+
+    <div class="container">
+        
+          
+        
+
+        
+<div class="module-header">
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Log in to continue your learning journey.</p>
+</div>
+
+<div class="ds-card" style="max-width: 440px; margin: 0 auto;">
+    <form action="/login" method="POST" class="ds-flex-col ds-gap-4">
+        <input type="hidden" name="csrf_token" value="demo">
+        <div>
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" name="email" required="" autocomplete="email" maxlength="254">
+        </div>
+        <div>
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" name="password" required="" autocomplete="current-password" maxlength="128">
+        </div>
+        <button type="submit" class="ds-btn ds-btn-primary" style="width: 100%;">Login</button>
+    </form>
+    <p class="ds-text-center ds-mt-4" style="margin-bottom:0;">
+        <a href="/forgot-password" class="ds-text-primary" style="font-weight: var(--ds-weight-title); text-decoration: none;">
+            Forgot password?
+        </a>
+    </p>
+    <p class="ds-text-center ds-mt-6" style="margin-bottom:0;">
+        Don't have an account?
+        <a href="/register" class="ds-text-primary" style="font-weight: var(--ds-weight-title); text-decoration: none;">Register here</a>
+    </p>
+
+    <div class="ds-mt-6" style="padding-top: var(--ds-space-4); border-top: 1px solid var(--ds-border); text-align: center;">
+        <p class="ds-text-muted ds-mb-2" style="font-size: var(--ds-fs-small);">For instructors</p>
+        <a href="/demo" class="ds-btn ds-btn-outline ds-btn-sm">Enable Demo Mode</a>
+    </div>
+</div>
+
+    </div>
+
+<script src="/BS-PMC-26-Team1/demo.js"></script></body></html>
