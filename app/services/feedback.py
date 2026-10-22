@@ -8,6 +8,7 @@ def check_answer(
     question_type=QuestionType.MCQ.value,
     total_tests=3,
     test_cases=None,
+    language=None,
 ):
     """
     Reusable feedback service.
@@ -64,7 +65,7 @@ def check_answer(
             {"inputs": [10, 20], "expected": 30},
         ]
         
-        run_results = run_student_code(user_answer, mock_test_cases)
+        run_results = run_student_code(user_answer, mock_test_cases, language=language)
         
         if run_results["passed"] == len(mock_test_cases):
             is_correct = True

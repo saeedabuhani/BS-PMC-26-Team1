@@ -6,3 +6,6 @@ venv/
 instance/
 *.db
 .DS_Store
+
+# local SQL-Server-style CSV store created by tests
+db_sqlserver_live/
